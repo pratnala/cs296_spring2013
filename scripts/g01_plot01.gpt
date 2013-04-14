@@ -1,0 +1,15 @@
+set   autoscale                      
+unset log                            
+unset label                          
+set xtic auto                         
+set ytic auto 
+#Now the actual code begins                        
+set title "Plot 1: Iteration Values vs Average Step Time and Loop Time"
+set xlabel " Iteration Values "
+set ylabel " Average steptime and loop time"
+set term png
+set output "./plots/g01_plot01.png"
+set datafile sep ","
+
+plot './data/lab05_g01_data.csv' u 2:3 title 'Avg. Step Time' smooth unique w point, \
+	'./data/lab05_g01_data.csv' u 2:7 title 'Avg. Loop Time' smooth unique w point

@@ -1,0 +1,31 @@
+set   autoscale     
+unset log                            
+unset label                          
+set xtic auto                         
+set ytic auto
+#Now begins the actual code
+
+set title "Errors for Step Time for Various Iteration Values:"
+set xlabel "Iteration Values"
+set ylabel "Estimation of Step Time along with Error Bars"
+set term png
+set output "./plots/g01_plot04.png"
+set datafile sep ","
+
+square(t)=t*t
+
+set table 'meanSquare.dat'
+plot './data/lab05_g01_data.csv' u 2:(square($3)) smooth unique
+unset table
+
+set table 'mean.dat'
+plot './data/lab05_g01_data.csv' u 2:3 smooth unique
+unset table
+
+set table 'union.dat'
+set datafile sep " "
+plot '< join meanSquare.dat mean.dat' u 2:4
+unset table
+
+plot 'union.dat' every::5::104 using 0:2:(sqrt($1-(square($2)))) with yerrorbars title 'Step times with error bars'
+

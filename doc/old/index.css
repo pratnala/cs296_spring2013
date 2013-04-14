@@ -1,0 +1,168 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #0DC92C url(images/img01.png) repeat;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: 200;
+	color: #454545;
+}
+
+blockquote {
+	font-size: 2em;
+	font-style: italic;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	color: #221D1D;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+p, ol, ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 200%;
+}
+
+a {
+	color: #2F2F2F;
+}
+
+#wrapper {
+	width: 1200px;
+	margin: 0px auto;
+	padding: 0px 0px 0px 0px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,.1);
+}
+
+#logo {
+	width: 960px;
+	height: 120px;
+	margin: 0px auto 30px auto;
+	color: #000000;
+}
+
+#logo h1, #logo p {
+	margin: 0;
+	padding: 0;
+}
+
+#logo h1 {
+	line-height: 100px;
+	letter-spacing: -1px;
+	text-align: center;
+	font-size: 5em;
+	color: #1F1F1F;
+}
+
+#logo h1 span {
+	color: #1F1F1F;
+}
+
+#logo p {
+	text-align: center;
+	font-size: 16px;
+	color: #595959;
+}
+
+#menu {
+	overflow: hidden;
+	width: 1100px;
+	height: 70px;
+	margin: 0px 50px;
+	background: #000000;
+	font-size: 20px;
+	color: #000000;
+}
+
+#menu ul {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px;
+	list-style: none;
+	line-height: normal;
+	text-align: center;
+}
+
+#menu li {
+	display: inline-block;
+}
+
+#menu a {
+	display: block;
+	padding: 0px 40px 0px 40px;
+	line-height: 70px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 200;
+	color: #FFFFFF;
+	border: none;
+}
+
+#menu a:hover, #menu .current_page_item a {
+	text-decoration: none;
+}
+
+#menu .last {
+	border-right: none;
+}
+
+#welcome {
+	width: 1100px;
+	margin: 0px auto;
+	padding: 30px 50px;
+}
+
+#welcome .content {
+	padding: 0px 0px 40px 0px;
+	border-bottom: 1px solid #D4D4D4;
+}
+
+#welcome h2 {
+	padding: 0px 0px 20px 0px;
+}
+
+#welcome h2 a {
+	text-decoration: none;
+	color: #000000;
+}
+
+#two-columns {
+	overflow: hidden;
+	width: 1100px;
+	margin: 0px auto;
+	padding: 40px 50px 50px 50px;
+}
+
+#two-columns h2 {
+	padding: 0px 0px 20px 0px;
+	color: #000000;
+}
+
+#two-columns #col1 {
+	float: left;
+	width: 740px;
+}
+
+#two-columns #col2 {
+	float: right;
+	width: 320px;
+}
+
+#banner {
+	width: 1100px;
+	margin: 10px auto 0px auto;
+}

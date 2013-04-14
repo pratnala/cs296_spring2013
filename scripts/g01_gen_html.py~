@@ -1,0 +1,61 @@
+import re
+
+text = open ('./doc/g01_prof_report.tex', 'r')
+out1 = open ('./doc/g01_lab09_report.html', 'w')
+out1.write ('<html><body>')
+out1.write ('<head><link href="main.css" media="screen" rel="stylesheet" type="text/css" />')
+str1 = text.read ()
+chars = re.search (r'\\section{Timing: Conclusions derived from lab 5}[\x00-\xFF]*\\section{Code Profiling with Perf}', str1)
+temp_no = len ('\section{Code Profiling with Perf}')
+temp1 = chars.group (0)[:-temp_no]
+temp1 = temp1[8:]
+temp2 = temp1.split ('\subsection')
+temp3 = len (temp2)
+temp11 = []
+temp17 = []
+for i in range (0, temp3):
+	#print ('------------------')
+	temp4 = temp2[i].split ('\subsubsection')
+	temp5 = len (temp4)
+	for j in range (0, temp5):
+		flag = 0
+		temp7 = ''
+		temp8 = temp4[j]
+		temp9 = re.findall (r'\\begin{figure}[\x00-\xFF]*\\end{figure}', temp8)
+		temp10 = re.sub (r'\\begin{figure}[\x00-\xFF]*\\end{figure}', '', temp8)
+		if temp9 != []:
+			temp12 = re.findall (r'[-a-zA-Z0-9]*.png', temp9[0])
+			temp13 = temp9[0].split ('\caption')
+			temp14 = re.findall (r'{[\x00-\xFF]*}\n', temp13[1])
+			temp15 = temp14[0]
+			temp16 = temp15[1:-2]
+			#print (temp16)
+			temp17.append(temp16)
+			for m in range (len (temp12)):
+				temp11.append(temp12[m])
+				out1.write ('<img src = "' + temp12[m] + '" width = "50%"/>')
+			out1.write ('<h2 align = "center">' + temp16 + '</h2>')
+		temp6 = len (temp10)
+		for k in range (0, temp6):
+			if flag == 0:
+				if temp10[k] == '{':
+					continue
+				elif temp10[k] == '}':
+					flag = 1
+					break
+				else:
+					temp7 = temp7 + temp10[k]
+		if i == 0:
+			out1.write ('<h1>' + temp7 + '</h1>')
+			out1.write ('<p align = "justify">' + temp10[len (temp7) + 2:] + '</p>')
+			#print ('********')
+		else:
+			if j == 0:
+				out1.write ('<h2>' + temp7 + '</h2>')
+				out1.write ('<p align = "justify">' + temp10[len (temp7) + 2:] + '</p>')
+			else:
+				out1.write ('<h3>' + temp7 + '</h3>')
+				out1.write ('<p align = "justify">' + temp10[len (temp7) + 2:] + '</p>')
+			#print ('********')
+		temp6 = re.search (r'{[\x00-\xFF]*}', temp4[j])
+out1.write ('</body></html>')
