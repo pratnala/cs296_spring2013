@@ -1,3 +1,6 @@
+cs296_spring2013
+================
+
 To run the Rube-Goldberg machine
 
 1. First open a terminal
