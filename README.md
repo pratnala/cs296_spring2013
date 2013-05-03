@@ -16,6 +16,6 @@ To install
 
 Dependencies:
 
-<pre>sudo apt-get install libglui2c2 freeglut3</pre>
+<pre>sudo apt-get install libglui2c2 libglui2c2-dev freeglut3 freeglut3-dev</pre>
 
 Please look at the makefile for other targets or contact me!
